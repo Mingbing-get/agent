@@ -40,15 +40,22 @@ description: '规定项目架构和技术选型。当用户需要制定项目架
 
 #### 前端技术
 
-- **框架选择**：React、小程序使用taro+react框架
+- **框架选择**：React
 - **语言**：TypeScript
 - **构建工具**：Vite
 - **UI 库**：Ant Design、Tailwind CSS
 - **测试工具**：Jest、Cypress、Testing Library
 
+#### 小程序开发
+
+- **框架选择**：小程序使用taro+react框架
+- **语言**：TypeScript
+- **构建工具**：Vite
+- **UI 库**：@nutui/nutui-react-taro
+
 #### 后端技术
 
-- **语言**：Node.js + TypeScript
+- **语言**：Node + TypeScript
 - **框架**：koa
 - **数据库**：PostgreSQL
 - **认证**：JWT
@@ -149,6 +156,10 @@ description: '规定项目架构和技术选型。当用户需要制定项目架
   App.ts            # 应用入口
   main.tsx           # 主文件
 ```
+
+### 小程序
+
+使用`taro init`初始化小程序项目，选择react框架。
 
 ### 后端项目架构示例
 
