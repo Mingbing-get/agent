@@ -1,5 +1,5 @@
 ---
-name: 'project-framework'
+name: 'project-framework-skill'
 description: '规定项目架构和技术选型。当用户需要制定项目架构、技术栈选择或项目结构规划时调用。'
 ---
 
