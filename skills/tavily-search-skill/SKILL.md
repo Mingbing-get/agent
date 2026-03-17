@@ -2,7 +2,7 @@
 name: 'tavily-search-skill'
 description: '使用 Tavily API 进行网络搜索。当用户需要搜索网络信息、查找资料或获取实时数据时调用。'
 env:
-  required:
+  requires:
     - TAVILY_API_KEY
 ---
 
