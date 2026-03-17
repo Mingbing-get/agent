@@ -1,6 +1,6 @@
 ---
 name: 'tavily-search-skill'
-description: '使用 Tavily API 进行网络搜索。当用户需要搜索网络信息、查找资料或获取实时数据时调用。'
+description: 'Search the web with LLM-optimized results via the Tavily CLI. Use this skill when the user wants to search the web, find articles, look up information, get recent news, discover sources, or says "search for", "find me", "look up", "what is the latest on", "find articles about", or needs current information from the internet. Returns relevant results with content snippets, relevance scores, and metadata — optimized for LLM consumption. Supports domain filtering, time ranges, and multiple search depths.'
 env:
   requires:
     - TAVILY_API_KEY
