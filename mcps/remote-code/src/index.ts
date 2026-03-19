@@ -1,6 +1,6 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp'
 import { type CallToolResult } from '@modelcontextprotocol/sdk/types'
-import * as z from 'zod/v4'
+import { z } from 'zod'
 
 import 'dotenv/config'
 
