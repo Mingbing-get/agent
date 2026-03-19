@@ -14,6 +14,7 @@ import { join, resolve } from 'path'
 const PORT = Number(process.env.PORT) || 3000
 const token = process.env.AUTH_TOKEN || ''
 const allowDir = process.env.ALLOWED_DIR || process.cwd()
+const allowedHosts = process.env.ALLOWED_HOSTS?.split(',') || ['localhost', '127.0.0.1', '[::1]']
 
 const resolvedAllowedDir = resolve(allowDir)
 
@@ -312,4 +313,5 @@ createStreamMcpServer({
   getServer,
   port: PORT,
   token,
+  allowedHosts,
 })

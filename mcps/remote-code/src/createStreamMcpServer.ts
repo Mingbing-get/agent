@@ -12,6 +12,7 @@ interface Options {
   getServer: () => McpServer
   port: number
   token: string
+  allowedHosts?: string[]
 }
 
 function createAuthMiddleware(token: string) {
@@ -33,8 +34,10 @@ function createAuthMiddleware(token: string) {
   }
 }
 
-export default function createStreamMcpServer({ getServer, port, token }: Options) {
-  const app = createMcpExpressApp()
+export default function createStreamMcpServer({ getServer, port, token, allowedHosts }: Options) {
+  const app = createMcpExpressApp({
+    allowedHosts,
+  })
 
   const transportManager = new TransportManager<StreamableHTTPServerTransport>()
 
