@@ -53,7 +53,7 @@ const getServer = () => {
       }),
     },
     async ({ command, cwd }): Promise<CallToolResult> => {
-      const workingDir = cwd ? resolve(cwd) : process.cwd()
+      const workingDir = cwd ? resolve(cwd) : allowDir
 
       return new Promise((resolvePromise, reject) => {
         const result = {
