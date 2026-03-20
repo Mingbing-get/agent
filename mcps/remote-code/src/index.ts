@@ -7,9 +7,9 @@ import 'dotenv/config'
 import createStreamMcpServer from './createStreamMcpServer'
 
 import { spawn } from 'child_process'
-import { readdir, readFile, writeFile, stat } from 'fs/promises'
+import { readdir, readFile, writeFile, stat, mkdir } from 'fs/promises'
 import { existsSync } from 'fs'
-import { join, resolve } from 'path'
+import { dirname, join, resolve } from 'path'
 
 const PORT = Number(process.env.PORT) || 3000
 const token = process.env.AUTH_TOKEN || ''
@@ -53,7 +53,7 @@ const getServer = () => {
       }),
     },
     async ({ command, cwd }): Promise<CallToolResult> => {
-      const workingDir = cwd ? resolve(cwd) : allowDir
+      const workingDir = cwd ? resolve(resolvedAllowedDir, cwd) : resolvedAllowedDir
 
       return new Promise((resolvePromise, reject) => {
         const result = {
@@ -170,6 +170,11 @@ const getServer = () => {
     },
     async ({ path: filePath, content }): Promise<CallToolResult> => {
       const resolvedPath = validatePath(filePath)
+
+      const dirPath = dirname(resolvedPath)
+      if (!existsSync(dirPath)) {
+        await mkdir(dirPath, { recursive: true })
+      }
 
       await writeFile(resolvedPath, content, 'utf-8')
 
